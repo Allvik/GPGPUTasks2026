@@ -73,8 +73,10 @@
 Для того чтобы CI запустил профилирование и предоставил вам результаты - когда делаете коммит - добавьте в нем строку выглядящую как "compute-sanitizer \<arguments\>", например:
 
 ```
-compute-sanitizer --tool racecheck --launch-count 1
-compute-sanitizer --tool memcheck --launch-count 1
+Trying to find bug in matrix transpose
+
+compute-sanitizer --tool racecheck
+compute-sanitizer --tool memcheck
 ```
 
 Полный набор аргументов запуска compute-sanitizer можно [посмотреть здесь](https://raw.githubusercontent.com/GPGPUCourse/GPGPUTasks2026/task01/.github/compute-sanitizer_arguments_help.txt).
@@ -89,7 +91,7 @@ compute-sanitizer --tool memcheck --launch-count 1
 ```
 Kernel optimized: coalesced memory access pattern
 
-ncu --set basic --launch-count 1
+ncu --set full
 ```
 
 Полный набор аргументов запуска ncu можно [посмотреть здесь](https://raw.githubusercontent.com/GPGPUCourse/GPGPUTasks2026/task01/.github/ncu_arguments_help.txt).
