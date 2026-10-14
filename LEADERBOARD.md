@@ -8,9 +8,14 @@
 
 | Place | Year | Participant | Team | Result | API | Link |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 2025 | Роберт Смайт | СПбГУ | 11720.80 GFlops | CUDA, WMMA | [PR #357](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/357/changes/6a5198e2aa136bb064fc99988d0717253ca28e4a) |
-| 2 | 2025 | Mikhail Stulov | МФТИ / ТБанк | 9768.83 GFlops | OpenCL | [PR #399](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/399/changes/09fff64fd38e8bc3c63d894e014883e10e907b9d) |
-| 3 | 2025 | Хулиган Серега | ИТМО | 7234.19 GFlops | OpenCL | [PR #309](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/309/changes/c1f4c050237a6637096f275555d594dbf30a1b97) |
+| 1 | 2026 | Мовчанюк Павел | Военмех | 78121 GFlops | CUDA, WMMA | [PR #262](https://github.com/GPGPUCourse/GPGPUTasks2026/pull/262#issuecomment-6132196924) |
+| 2 | 2026 | Пётр Маяцкий | ИТМО / AAM Systems | 71185 GFlops | CUDA, WMMA | [PR #358](https://github.com/GPGPUCourse/GPGPUTasks2026/pull/358#issuecomment-6129166683) |
+| 3 | 2026 | Андрей Кашенин | СПбГУ / Яндекс | 64283 GFlops | CUDA, WMMA | [PR #405](https://github.com/GPGPUCourse/GPGPUTasks2026/pull/405#issuecomment-6127620133) |
+| 4 | 2025 | Роберт Смайт | СПбГУ | 11720 GFlops | CUDA, WMMA | [PR #357](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/357/changes/6a5198e2aa136bb064fc99988d0717253ca28e4a) |
+| 5 | 2025 | Mikhail Stulov | МФТИ / ТБанк | 9768 GFlops | OpenCL | [PR #399](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/399/changes/09fff64fd38e8bc3c63d894e014883e10e907b9d) |
+| 6 | 2025 | Хулиган Серега | ИТМО | 7234 GFlops | OpenCL | [PR #309](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/309/changes/c1f4c050237a6637096f275555d594dbf30a1b97) |
+
+P.S. `Tesla V100-SXM2-16GB`: `125 TFLOPS` Tensor Core FP16.
 
 ## Task 04. Prefix Sum
 
