@@ -107,7 +107,7 @@ ncu --set full
 ```
 Some commit message
 
-ncu --set full --export profile_report
+ncu --set full --export profile_report --import-source yes
 ```
 
 Как работать под Windows
