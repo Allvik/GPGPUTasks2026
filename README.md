@@ -102,6 +102,8 @@ ncu --set full
 
 Полный набор аргументов запуска ncu можно [посмотреть здесь](https://raw.githubusercontent.com/GPGPUCourse/GPGPUTasks2026/task01/.github/ncu_arguments_help.txt).
 
+```-o / --export``` - тоже поддерживается, ```.ncu-rep``` файл с профилем будет приложен в комментарии проверки, дальше вы можете его проанализировать локально через ```ncu-ui``` (```File->Open```).
+
 Как работать под Windows
 ========================
 
