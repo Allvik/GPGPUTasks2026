@@ -22,8 +22,8 @@ P.S. `Tesla V100-SXM2-16GB`: `125 TFLOPS` Tensor Core FP16.
 | Place | Year | Participant | Team | Result | API | Link |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 2026 | Павел Мовчанюк | Военмех | 748.98 GB/s | CUDA | [PR #482](https://github.com/GPGPUCourse/GPGPUTasks2026/pull/482#issuecomment-6276992417) |
-| 2 | 2026 | Никита Богатырев | ИТМО | 745.12 GB/s | OpenCL | [PR #511](https://github.com/GPGPUCourse/GPGPUTasks2026/pull/511#issuecomment-6274125945) |
-| 3 | 2026 | Андрей Кашенин | СПбГУ / Яндекс | 744.05 GB/s | OpenCL | [PR #496](https://github.com/GPGPUCourse/GPGPUTasks2026/pull/496#issuecomment-6262480925) |
+| 2 | 2026 | Никита Богатырев | ИТМО | 745.12 GB/s | CUDA | [PR #511](https://github.com/GPGPUCourse/GPGPUTasks2026/pull/511#issuecomment-6274125945) |
+| 3 | 2026 | Андрей Кашенин | СПбГУ / Яндекс | 744.05 GB/s | CUDA | [PR #496](https://github.com/GPGPUCourse/GPGPUTasks2026/pull/496#issuecomment-6262480925) |
 | 4 | 2025 | Роберт Смайт | СПбГУ | 350.40 GB/s | CUDA | [PR #478](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/478/changes/0cfaca0c3973127a9b618e19202152ce43f63b7f) |
 | 5 | 2025 | Илья Коннов | ИТМО / Яндекс | 295.33 GB/s | OpenCL | [PR #499](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/499/changes/70eb953c6788a84fdf971d20cef4e004c8909491) |
 | 6 | 2025 | Mikhail Stulov | МФТИ / ТБанк | 278.85 GB/s | OpenCL | [PR #474](https://github.com/GPGPUCourse/GPGPUTasks2025/pull/474/changes/0e41641564b8c6a78deb381c5cf7de3854534b86) |
