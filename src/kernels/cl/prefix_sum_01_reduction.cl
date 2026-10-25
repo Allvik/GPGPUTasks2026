@@ -14,7 +14,7 @@ __kernel void prefix_sum_01_reduction(
 {
     int index = get_global_id(0);
     int local_index = get_local_id(0);
-    __local buffer[GROUP_SIZE * 2];
+    __local uint buffer[GROUP_SIZE * 2];
 
     int start_index = 2 * (index - local_index);
 
