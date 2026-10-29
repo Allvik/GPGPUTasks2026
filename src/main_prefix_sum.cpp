@@ -39,6 +39,9 @@ void run(int argc, char** argv)
 
     ocl::KernelSource ocl_simple_version1(ocl::getPrefixSumSimpleVersion1());
 
+    ocl::KernelSource ocl_fast_in_group_32(ocl::getPrefixSumFast32(), "prefix_sum_fast_in_group_32");
+    ocl::KernelSource ocl_fast_32(ocl::getPrefixSumFast32(), "prefix_sum_fast_32");
+
     avk2::KernelSource vk_fill_with_zeros(avk2::getFillBufferWithZeros());
     avk2::KernelSource vk_sum_reduction(avk2::getPrefixSum01Reduction());
     avk2::KernelSource vk_prefix_accumulation(avk2::getPrefixSum02PrefixAccumulation());
@@ -72,12 +75,15 @@ void run(int argc, char** argv)
     // Аллоцируем буферы в VRAM
     gpu::gpu_mem_32u input_gpu(n), buffer1_pow2_sum_gpu(n), buffer2_pow2_sum_gpu(n), prefix_sum_accum_gpu(n);
 
+    gpu::gpu_mem_32u helper1_gpu(n / 32), helper2_gpu(n / 32);
+
     // Прогружаем входные данные по PCI-E шине: CPU RAM -> GPU VRAM
     input_gpu.writeN(as.data(), n);
 
     const std::vector<std::string> algorithm_names = {
         "simple_version1",
         "reduction + accumulation",
+        "fast_32",
     };
     for (const std::string& algorithm : algorithm_names) {
         std::cout << "-----------------------------" << std::endl;
@@ -134,8 +140,30 @@ void run(int argc, char** argv)
                         cur_ans ^= 1;
                     }
                 }
-            } 
-            else {
+            } else if (algorithm == "fast_32") {
+                ocl_fast_in_group_32.exec(gpu::WorkSize(128, n), input_gpu, buffer1_pow2_sum_gpu, helper1_gpu);
+                int block_size = 128;
+                int it = 0;
+                int helper_size = n / 128;
+
+                while (block_size < n) {
+                    if (it == 0) {
+                        ocl_fast_32.exec(gpu::WorkSize(128, n), buffer1_pow2_sum_gpu, helper1_gpu, buffer2_pow2_sum_gpu, helper2_gpu, n, block_size, helper_size);
+                    } else {
+                        ocl_fast_32.exec(gpu::WorkSize(128, n), buffer2_pow2_sum_gpu, helper2_gpu, buffer1_pow2_sum_gpu, helper1_gpu, n, block_size, helper_size);
+                    }
+                    helper_size /= 128;
+                    it ^= 1;
+                    if (1ll * block_size * 128 > n) break;
+                    block_size *= 128;
+                }
+
+                if (it == 0) {
+                    result_gpu = &buffer1_pow2_sum_gpu;
+                } else {
+                    result_gpu = &buffer2_pow2_sum_gpu;
+                }
+            } else {
                 throw std::runtime_error(CODE_IS_NOT_IMPLEMENTED);
             }
 
